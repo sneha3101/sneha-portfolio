@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha's Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .container1 p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .container2 ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .container2 ul li {
+            margin-left: 2rem;
+        }
+
+        .container2 ul li a {
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .container2 ul li a:hover {
+            color: #3498db;
+        }
+
+        .container2 ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #3498db;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .container2 ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .container3 {
+            max-width: 1200px;
+            margin: 8rem auto 2rem;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .left {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .round-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #2c3e50;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+        }
+
+        .about {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .about:nth-child(2) {
+            font-weight: bold;
+        }
+
+        .about:nth-child(3) {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #2c3e50;
+        }
+
+        .download-btn:hover {
+            background-color: transparent;
+            color: #2c3e50;
+        }
+
+        /* Certificates Section */
+        #certificates {
+            padding: 4rem 2rem;
+            background-color: #e8e8e8;
+        }
+
+        #certificates h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certificate-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .certificate-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-card p {
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-card a {
+            display: inline-block;
+            color: #3498db;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: color 0.3s;
+        }
+
+        .certificate-card a:hover {
+            color: #2980b9;
+        }
+
+        /* Projects Section */
+        #projects {
+            padding: 4rem 2rem;
+            background-color: white;
+        }
+
+        #projects h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .project-info a {
+            color: #3498db;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .project-info a:hover {
+            color: #2980b9;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 4rem 2rem;
+            background-color: #e8e8e8;
+        }
+
+        #contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #34495e;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .bottom-line {
+            border: none;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: #bdc3c7;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #3498db;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .container1 {
+                margin-bottom: 1rem;
+            }
+
+            .container2 ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .container2 ul li {
+                margin: 0 1rem 0.5rem;
+            }
+
+            .container3 {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 6rem;
+            }
+
+            .about {
+                font-size: 1.5rem;
+            }
+
+            .round-image {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container1">
+                <p><strong>Sneha's Portfolio</strong></p>
+            </div>
+            <div class="container2">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container3">
+      <div class="left">
+          <img src="profile photo.jpg" alt="Profile Picture" class="round-image">
+      </div>
+      
+      <section id="home">
+          <div class="section-content">
+              <p class="about">Hi, My Name is Sneha</p>
+              <p class="about">And I am a</p>
+              <p class="about">Front End Developer</p>
+              <a href="resume.docx" download="Sneha_Resume" class="download-btn">Download Resume</a>
+          </div>
+      </section>
+  </div>
+
+    <!-- Certificates Section -->
+    <section id="certificates">
+        <div class="section-content">
+            <h2>My Certificates</h2>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <h3>Google Cloud Computing Foundation</h3>
+                    <p>Issued by: Google</p>
+                    <p>Date: April 2025</p>
+                    <a href="https://www.cloudskillsboost.google/public_profiles/f6c8d6af-6eb3-4751-aa7c-7d220d7a3033/badges/14262834">View Certificate</a>
+                </div>
+                
+                <div class="certificate-card">
+                    <h3>Flipkart Runway:2025</h3>
+                    <p>Issued by: Flipkart</p>
+                    <p>Date: March 2025</p>
+                    <a href="runway certificate.pdf">View Certificate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-content">
+            <h2>My Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <img src="amazon clone.png" alt="Project 1" class="project-img">
+                    <div class="project-info">
+                        <h3>Amazon Clone</h3>
+                        <p>A clone built with Front end tools</p>
+                        <a href=" https://sneha3101.github.io/-Amazon-clone-with-html-and-css/">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="portfolio.png" alt="Project 2" class="project-img">
+                    <div class="project-info">
+                        <h3>Portfolio Website</h3>
+                        <p>A personal portfolio website showcasing my work and skills</p>
+                        <a href="#">View Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="light the city.png" alt="Project 3" class="project-img">
+                    <div class="project-info">
+                        <h3>Light The City</h3>
+                        <p>An Interesting game that can be played on mobile as well as desktop </p>
+                        <a href="https://sneha3101.github.io/light-the-city/">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <form action="https://formspree.io/f/xwpooovb" method="POST" class="contact-form">
+        
+    <section id="contact">
+        <div class="section-content">
+            <h2>Get In Touch</h2>
+
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <hr class="bottom-line">
+        <div class="footer-container">
+      
+            <div class="footer-section">
+                <h3>Email</h3>
+                <p>nowsneha.2021@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Social Media</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/sneha-sharma-ab752828a" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/sneha3101" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.hackerrank.com/profile/nowsneha_2021" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-hackerrank"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
